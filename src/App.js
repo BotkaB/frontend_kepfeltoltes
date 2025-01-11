@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Kezdolap from "./pages/Kezdolap";
+import Kepek from "./pages/Kepek";
+import KepOldal from "./components/KepOldal";
+import NoPages from "./pages/NoPages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Kezdolap />} />
+
+          <Route path="kepfeltoltes" element={<Kepek />} />
+          <Route path="kepoldal" element={<KepOldal />} />
+      
+          <Route path="*" element={<NoPages />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-import useFileContext from "../contexts/FileContext";
+import useFileContext from "../context/fileContext";
 
-export default function FormComponet() {
-const { postAdat } = useFileContext();
+export default function FormCompontnt() {
+const { postAdat, errors } = useFileContext();
 const [file, setFile] = useState(null);
 const [title, setTitle] = useState("");
+
 
 function kuld(event) {
     event.preventDefault()
@@ -35,6 +36,11 @@ return (
             placeholder="kép címe"
         />
         </div>
+        <div>
+          {errors.title && (
+            <span className="text-danger">{errors.title[0]}</span>
+          )}
+        </div>
         <div className="mb-3">
         <label htmlFor="name" className="form-label">
             Válassz fájlt!
@@ -50,7 +56,11 @@ return (
             placeholder="Válasszon fájlt..."
         />
         </div>
-
+        <div>
+          {errors.title && (
+            <span className="text-danger">{errors.title[0]}</span>
+          )}
+        </div>
         <input
         type="submit"
         className="btn btn-primary"

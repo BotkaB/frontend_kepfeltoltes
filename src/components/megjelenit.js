@@ -1,5 +1,6 @@
-import useFileContext from "../contexts/FileContext";
+
 import Card from "./card";
+import useFileContext from "../context/fileContext";
 
 export default function Megjelenit() {
 const { kepekLista } = useFileContext(); // itt tesszük elérhetővé  a context-ben megadott változót. 
